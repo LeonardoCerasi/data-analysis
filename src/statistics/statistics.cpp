@@ -1,4 +1,4 @@
-#include "statistics.h"
+#include "statistics/statistics.h"
 
 double statistics::aritmetic_mean(std::vector<double> values)
 {
