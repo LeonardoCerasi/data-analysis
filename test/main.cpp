@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
 
-#include "statistics.h"
+#include "statistics/statistics.h"
+#include "probability/discrete_probability.h"
 
 int main()
 {
@@ -12,6 +13,8 @@ int main()
     std::cout << "Variance: " << statistics::variance(values) << std::endl;
 
     std::cout << "Standard deviation: " << statistics::deviation(values) << std::endl;
+
+    std::cout << "\n" << bernoulli(10, 0.5, 5) << std::endl;
 
     return 0;
 }
