@@ -16,5 +16,7 @@ int main()
 
     std::cout << "\n" << bernoulli(10, 0.5, 5) << std::endl;
 
+    std::cout << "\n" << poisson(5, 5) << std::endl;
+
     return 0;
 }
