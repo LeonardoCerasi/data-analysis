@@ -1,9 +1,7 @@
 bin/*
 build/*
-test/*
 .vscode/*
 
-*.in
 *.log
-*.txt
 *.o
+exec
