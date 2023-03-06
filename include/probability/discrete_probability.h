@@ -4,6 +4,9 @@
 
 #include "tools/math.h"
 
-double bernoulli(int n, double p, int k);
+namespace probability
+{
+    double bernoulli(int n, double p, int k);
 
-double poisson(double l, int k);
+    double poisson(double l, int k);
+}
