@@ -3,6 +3,7 @@
 
 #include "statistics/statistics.h"
 #include "probability/discrete_probability.h"
+#include "probability/continuous_probability.h"
 
 int main()
 {
@@ -14,9 +15,11 @@ int main()
 
     std::cout << "Standard deviation: " << statistics::deviation(values) << std::endl;
 
-    std::cout << "\n" << bernoulli(10, 0.5, 5) << std::endl;
+    std::cout << "\n" << probability::bernoulli(10, 0.5, 5) << std::endl;
 
-    std::cout << "\n" << poisson(5, 5) << std::endl;
+    std::cout << "\n" << probability::poisson(5, 5) << std::endl;
+
+    std::cout << "\n" << probability::normal(10, 0.5, 5) << std::endl;
 
     return 0;
 }
