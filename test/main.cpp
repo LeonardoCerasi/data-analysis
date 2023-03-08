@@ -4,28 +4,41 @@
 #include "statistics/statistics.h"
 #include "probability/discrete_probability.h"
 #include "probability/continuous_probability.h"
+#include "tools/input.h"
 
 int main()
 {
-    std::vector<double> values = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    std::vector<std::vector<double>> data = input::read_data("test/data.in", 'd');
+    std::vector<double> values;
+    for (int i = 0; i < data.size(); i++)
+    {
+        values.push_back(data[i][0]);
+    }
+    std::vector<double> deviations;
+    for (int i = 0; i < data.size(); i++)
+    {
+        deviations.push_back(data[i][1]);
+    }
 
-    std::cout << "Mean: " << statistics::aritmetic_mean(values) << std::endl;
+    double m = statistics::weighted_mean(values, deviations);
+    double v = statistics::weighted_variance(deviations);
+    double s = statistics::weighted_deviation(deviations);
 
-    std::cout << "Variance: " << statistics::variance(values) << std::endl;
-
-    std::cout << "Standard deviation: " << statistics::deviation(values) << std::endl;
+    std::cout << "Mean: " << m << std::endl;
+    std::cout << "Variance: " << v << std::endl;
+    std::cout << "Standard deviation: " << s << std::endl;
 
     std::cout << "\n" << probability::bernoulli(10, 0.5, 5) << std::endl;
 
     std::cout << "\n" << probability::poisson(5, 5) << std::endl;
 
-    std::cout << "\n" << probability::normal(1, 0.5, 0.5) << std::endl;
+    std::cout << "\n" << probability::normal(m, s, 4.5) << std::endl;
 
-    std::cout << "\n" << probability::gauss(1, 0.5, 0.5) << std::endl;
+    std::cout << "\n" << probability::gauss(m, s, 4.5) << std::endl;
 
-    std::cout << "\n" << probability::gauss(1, 0.5, 1.1, 1.6) << std::endl;
+    std::cout << "\n" << probability::gauss(m, s, 3, 6) << std::endl;
 
-    std::cout << "\n" << probability::gauss(1, 0.5, 0.7, 1.3) << std::endl;
+    std::cout << "\n" << probability::gauss(m, s, 7, 13) << std::endl;
 
     return 0;
 }

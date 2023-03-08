@@ -1,5 +1,5 @@
-exec: statistics.o discrete_probability.o continuous_probability.o math.o main.o
-	g++ build/statistics.o build/discrete_probability.o build/continuous_probability.o build/math.o build/main.o -o exec
+exec: statistics.o discrete_probability.o continuous_probability.o math.o input.o main.o
+	g++ build/statistics.o build/discrete_probability.o build/continuous_probability.o build/math.o build/input.o build/main.o -o exec
 
 main.o: test/main.cpp include/statistics/statistics.h include/probability/discrete_probability.h
 	g++ -c -I include/ test/main.cpp -o build/main.o
@@ -15,6 +15,9 @@ continuous_probability.o: src/probability/continuous_probability.cpp include/pro
 
 math.o: src/tools/math.cpp include/tools/math.h
 	g++ -c -I include/ src/tools/math.cpp -o build/math.o
+
+input.o: src/tools/input.cpp include/tools/input.h
+	g++ -c -I include/ src/tools/input.cpp -o build/input.o
 
 compila: exec
 

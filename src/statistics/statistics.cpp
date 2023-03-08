@@ -46,9 +46,9 @@ double statistics::weighted_mean(std::vector<double> measures, std::vector<doubl
 
     for (int i = 0; i < measures.size(); i++)
     {
-        mean += measures[i] * deviations[i];
+        mean += measures[i] * std::pow(deviations[i], -2);
 
-        total_weight += deviations[i];
+        total_weight += std::pow(deviations[i], -2);
     }
 
     return (mean / total_weight);
@@ -97,7 +97,7 @@ double statistics::weighted_variance(std::vector<double> deviations)
 
     for (int i = 0; i < deviations.size(); i++)
     {
-        total_dev += pow(deviations[i], -2);
+        total_dev += std::pow(deviations[i], -2);
     }
 
     return (1 / total_dev);
