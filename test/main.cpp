@@ -19,7 +19,13 @@ int main()
 
     std::cout << "\n" << probability::poisson(5, 5) << std::endl;
 
-    std::cout << "\n" << probability::normal(10, 0.5, 5) << std::endl;
+    std::cout << "\n" << probability::normal(1, 0.5, 0.5) << std::endl;
+
+    std::cout << "\n" << probability::gauss(1, 0.5, 0.5) << std::endl;
+
+    std::cout << "\n" << probability::gauss(1, 0.5, 1.1, 1.6) << std::endl;
+
+    std::cout << "\n" << probability::gauss(1, 0.5, 0.7, 1.3) << std::endl;
 
     return 0;
 }
